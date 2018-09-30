@@ -13,8 +13,8 @@ namespace TestEFCore
 
             using (VideoLibraryDbContext db = new VideoLibraryDbContext())
             {
-                Order order1 = new Order() {OrderStart = DateTime.Today, Days = 1};
-                Order order2 = new Order() {OrderStart = DateTime.Today, Days = 3};
+                Order order1 = new Order();
+                Order order2 = new Order(DateTime.Today, 10);
 
                 db.Orders.Add(order1);
                 db.Orders.Add(order2);
