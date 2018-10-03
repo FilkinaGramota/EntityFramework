@@ -11,12 +11,17 @@ namespace TestEFCore
         public int Days { get; set; }
         public DateTime OrderEnd { get; set; }
 
+        // many-to-many
+        public IList<FilmOrder> FilmOrders { get; set; }
+
         // default values
         public Order()
         {
             OrderStart = DateTime.Today;
             Days = 3;
             OrderEnd = OrderStart.AddDays(Days);
+
+            FilmOrders = new List<FilmOrder>();
         }
         // users values
         public Order(DateTime orderStart, int days)
@@ -24,6 +29,8 @@ namespace TestEFCore
             this.OrderStart = orderStart;
             this.Days = days;
             OrderEnd = OrderStart.AddDays(Days);
+
+            FilmOrders = new List<FilmOrder>();
         }
     }
 }

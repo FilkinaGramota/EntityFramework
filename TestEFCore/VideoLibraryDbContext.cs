@@ -7,6 +7,8 @@ namespace TestEFCore
     public class VideoLibraryDbContext: DbContext
     {
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Film> Films { get; set; }
+        public DbSet<FilmOrder> FilmOrders { get; set; }
 
         public VideoLibraryDbContext()
         {
@@ -20,6 +22,17 @@ namespace TestEFCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<FilmOrder>().HasKey(filmorder => new {filmorder.FilmId, filmorder.OrderId});
+
+            //modelBuilder.Entity<FilmOrder>()
+            //    .HasOne(filmOrder => filmOrder.Film)
+            //    .WithMany(film => film.FilmOrders)
+            //    .HasForeignKey(filmOrder => filmOrder.FilmId);
+
+            //modelBuilder.Entity<FilmOrder>()
+            //    .HasOne(filmOrder => filmOrder.Order)
+            //    .WithMany(order => order.FilmOrders)
+            //    .HasForeignKey(filmOrder => filmOrder.OrderId);
         }
     }
 }
