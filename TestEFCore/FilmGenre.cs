@@ -4,12 +4,12 @@ using System.Text;
 
 namespace TestEFCore
 {
-    public class FilmOrder
+    public class FilmGenre
     {
         public int FilmId { get; set; }
         public Film Film { get; set; }
 
-        public int OrderId { get; set; }
-        public Order Order { get; set; }
+        public int GenreId { get; set; }
+        public Genre Genre { get; set; }
     }
 }

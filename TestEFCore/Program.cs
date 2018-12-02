@@ -10,10 +10,9 @@ namespace TestEFCore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Entity Framework Core!");
-
             using (VideoLibraryDbContext db = new VideoLibraryDbContext())
-            {
+            {  
+                /*
                 //Order order1 = new Order();
                 //Order order2 = new Order(DateTime.Today, 10);
                 //db.Orders.Add(order1);
@@ -42,7 +41,10 @@ namespace TestEFCore
                 db.FilmOrders.AddRange(new List<FilmOrder> {film4Order1, film5Order1, film2Order2, film3Order2, film5Order2});
 
                 db.SaveChanges();
+                */
+
             }
+            Console.ReadLine();
         }
     }
 }

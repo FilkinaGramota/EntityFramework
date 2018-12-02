@@ -8,29 +8,28 @@ namespace TestEFCore
     {
         public int Id { get; set; }
         public DateTime OrderStart { get; set; }
-        public int Days { get; set; }
         public DateTime OrderEnd { get; set; }
 
-        // many-to-many
-        public IList<FilmOrder> FilmOrders { get; set; }
+        public Client Client { get; set; }
+        public IEnumerable<OrderCassette> OrderCassettes { get; set; }
 
-        // default values
-        public Order()
-        {
-            OrderStart = DateTime.Today;
-            Days = 3;
-            OrderEnd = OrderStart.AddDays(Days);
+        //// default values
+        //public Order()
+        //{
+        //    OrderStart = DateTime.Today;
+        //    Days = 3;
+        //    OrderEnd = OrderStart.AddDays(Days);
 
-            FilmOrders = new List<FilmOrder>();
-        }
-        // users values
-        public Order(DateTime orderStart, int days)
-        {
-            this.OrderStart = orderStart;
-            this.Days = days;
-            OrderEnd = OrderStart.AddDays(Days);
+        //    FilmOrders = new List<FilmOrder>();
+        //}
+        //// users values
+        //public Order(DateTime orderStart, int days)
+        //{
+        //    this.OrderStart = orderStart;
+        //    this.Days = days;
+        //    OrderEnd = OrderStart.AddDays(Days);
 
-            FilmOrders = new List<FilmOrder>();
-        }
+        //    FilmOrders = new List<FilmOrder>();
+        //}
     }
 }
