@@ -6,6 +6,7 @@ namespace TestEFCore
 {
     public class VideoLibraryDbContext: DbContext
     {
+        public DbSet<Cassette> Cassettes { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Film> Films { get; set; }
         public DbSet<CassetteFilm> CassetteFilms { get; set; }

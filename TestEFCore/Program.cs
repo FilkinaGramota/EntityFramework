@@ -10,8 +10,39 @@ namespace TestEFCore
     {
         static void Main(string[] args)
         {
-            using (VideoLibraryDbContext db = new VideoLibraryDbContext())
-            {  
+            Cassette cassette1 = new Cassette {Amount = 1 };
+            Cassette cassette4 = new Cassette {Amount = 4 };
+            Cassette cassette3 = new Cassette {Amount = 3 };
+
+            using (UnitOfWork unit = new UnitOfWork(new VideoLibraryDbContext()))
+            {
+                unit.CasseteRep.Delete(unit.CasseteRep.Get(4));
+                unit.CasseteRep.Delete(unit.CasseteRep.Get(5));
+                unit.CasseteRep.Delete(unit.CasseteRep.Get(6));
+                //unit.CasseteRep.Add(cassette1);
+                //unit.CasseteRep.Add(cassette3);
+                //unit.CasseteRep.Add(cassette4);
+                unit.Save();
+
+                IList<Cassette> allCassettes = unit.CasseteRep.GetAll().ToList();
+
+                Console.WriteLine("All cassettes:");
+                foreach (var cassette in allCassettes)
+                    Console.WriteLine($"Cassette id={cassette.Id}, amount={cassette.Amount}");
+
+                IList<Cassette> minCassettes = unit.CasseteRep.GetCassettesMin(3).ToList();
+                Console.WriteLine("Cassettes which have amount < 3 :");
+                foreach (var cassette in minCassettes)
+                    Console.WriteLine($"Cassette id={cassette.Id}, amount={cassette.Amount}");
+
+                IList<Cassette> maxCassettes = unit.CasseteRep.GetCassettesMax(3).ToList();
+                Console.WriteLine("Cassettes which have amount >= 3 :");
+                foreach (var cassette in maxCassettes)
+                    Console.WriteLine($"Cassette id={cassette.Id}, amount={cassette.Amount}");
+
+            }
+                //using (VideoLibraryDbContext db = new VideoLibraryDbContext())
+                //{  
                 /*
                 //Order order1 = new Order();
                 //Order order2 = new Order(DateTime.Today, 10);
@@ -43,8 +74,8 @@ namespace TestEFCore
                 db.SaveChanges();
                 */
 
-            }
-            Console.ReadLine();
+                //}
+                Console.ReadLine();
         }
     }
 }
