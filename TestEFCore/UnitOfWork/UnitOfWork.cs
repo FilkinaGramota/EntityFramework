@@ -8,14 +8,14 @@ namespace TestEFCore
     {
         private readonly VideoLibraryDbContext context;
 
-        public ICasseteRepository CasseteRep { get; set; }
+        public ICasseteRepository CassetteRep { get; set; }
         // IOderRepository
         // IFilmRepository
 
         public UnitOfWork(VideoLibraryDbContext context)
         {
             this.context = context;
-            CasseteRep = new CassetteRepository(context);
+            CassetteRep = new CassetteRepository(context);
         }
 
         public int Save()

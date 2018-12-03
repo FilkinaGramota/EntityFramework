@@ -6,7 +6,7 @@ namespace TestEFCore
 {
     interface IUnitOfWork: IDisposable
     {
-        ICasseteRepository CasseteRep { get; set; }
+        ICasseteRepository CassetteRep { get; set; }
         // IOderRepository
         // IFilmRepository
         int Save();// complete work with repository
