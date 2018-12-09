@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using TestEFCore.Entities;
+using TestEFCore.UnitsOfWork;
 
 namespace TestEFCore
 {
@@ -16,6 +18,7 @@ namespace TestEFCore
 
             using (UnitOfWork unit = new UnitOfWork(new VideoLibraryDbContext()))
             {
+                
                 //unit.CasseteRep.Add(cassette1);
                 //unit.CasseteRep.Add(cassette3);
                 //unit.CasseteRep.Add(cassette4);

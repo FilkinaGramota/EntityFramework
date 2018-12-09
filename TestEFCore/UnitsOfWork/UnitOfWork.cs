@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TestEFCore.Repositories;
 
-namespace TestEFCore
+namespace TestEFCore.UnitsOfWork
 {
     class UnitOfWork : IUnitOfWork
     {
         private readonly VideoLibraryDbContext context;
 
         public ICasseteRepository CassetteRep { get; set; }
+        public IClientRepository ClientRep { get; set; }
         // IOderRepository
         // IFilmRepository
 

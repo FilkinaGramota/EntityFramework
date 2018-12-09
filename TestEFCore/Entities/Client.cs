@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TestEFCore
+namespace TestEFCore.Entities
 {
     public class Client
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public Name Name { get; set; }
 
         public IEnumerable<Order> Orders { get; set; }
     }

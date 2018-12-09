@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TestEFCore.Entities;
 
-namespace TestEFCore
+namespace TestEFCore.Repositories
 {
     interface ICasseteRepository : IBaseRepository<Cassette>
     {

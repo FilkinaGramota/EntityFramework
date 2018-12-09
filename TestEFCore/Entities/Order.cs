@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TestEFCore
+namespace TestEFCore.Entities
 {
     public class Order
     {

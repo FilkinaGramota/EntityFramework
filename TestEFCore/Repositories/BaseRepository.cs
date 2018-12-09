@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace TestEFCore
+namespace TestEFCore.Repositories
 {
     class BaseRepository<T>:IBaseRepository<T> where T: class
     {

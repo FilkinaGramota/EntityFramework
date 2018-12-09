@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using TestEFCore.Entities;
 
-namespace TestEFCore
+namespace TestEFCore.Repositories
 {
     class CassetteRepository : BaseRepository<Cassette>, ICasseteRepository
     {

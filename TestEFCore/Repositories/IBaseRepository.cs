@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TestEFCore
+namespace TestEFCore.Repositories
 {
     interface IBaseRepository<T> where T: class
     {
