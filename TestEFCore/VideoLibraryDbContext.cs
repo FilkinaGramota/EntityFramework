@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestEFCore.Entities;
 using System.ComponentModel.DataAnnotations;
 
@@ -31,6 +32,7 @@ namespace TestEFCore
             modelBuilder.Entity<CassetteFilm>().HasKey(cassettefilm => new {cassettefilm.FilmId, cassettefilm.CassetteId});
             modelBuilder.Entity<FilmGenre>().HasKey(filmgenre => new { filmgenre.FilmId, filmgenre.GenreId });
             modelBuilder.Entity<OrderCassette>().HasKey(ordercassette => new { ordercassette.OrderId, ordercassette.CassetteId });
+            
             // complex type
             modelBuilder.Entity<Client>().OwnsOne(
                 client => client.Name,
@@ -39,6 +41,10 @@ namespace TestEFCore
                     name.Property(x => x.FirstName).HasColumnName("FirstName");
                     name.Property(x => x.LastName).HasColumnName("LastName");
                 });
+
+            // enum
+            var converter = new EnumToStringConverter<SomeGenres>();
+            modelBuilder.Entity<Film>().Property(film => film.Genre).HasConversion(converter);
         }
     }
 }

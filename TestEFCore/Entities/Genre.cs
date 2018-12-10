@@ -11,4 +11,11 @@ namespace TestEFCore.Entities
 
         public IEnumerable<FilmGenre> FilmGenres { get; set; }
     }
+
+    public enum SomeGenres
+    {
+        Adventure,
+        Fantasy,
+        Animation
+    }
 }
