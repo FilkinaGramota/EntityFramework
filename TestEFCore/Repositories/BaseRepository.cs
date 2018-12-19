@@ -25,9 +25,9 @@ namespace TestEFCore.Repositories
             return context.Set<T>().Find(id);
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return context.Set<T>().ToList();
+            return context.Set<T>();
         }
 
         public void Delete(T entity)

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace TestEFCore.Repositories
 {
@@ -8,7 +8,7 @@ namespace TestEFCore.Repositories
     {
         void Add(T entity);
         T Get(int id);
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
         void Delete(T entity);
     }
 }

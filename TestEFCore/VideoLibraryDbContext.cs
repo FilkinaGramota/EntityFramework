@@ -41,10 +41,6 @@ namespace TestEFCore
                     name.Property(x => x.FirstName).HasColumnName("FirstName");
                     name.Property(x => x.LastName).HasColumnName("LastName");
                 });
-
-            // enum
-            var converter = new EnumToStringConverter<SomeGenres>();
-            modelBuilder.Entity<Film>().Property(film => film.Genre).HasConversion(converter);
         }
     }
 }

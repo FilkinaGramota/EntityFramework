@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using TestEFCore.Entities;
 
 namespace TestEFCore.Repositories
 {
     interface ICasseteRepository : IBaseRepository<Cassette>
     {
-        IEnumerable<Cassette> GetCassettesMin(int amount);
-        IEnumerable<Cassette> GetCassettesMax(int amout);
+        IQueryable<Cassette> GetCassettesMin(int amount);
+        IQueryable<Cassette> GetCassettesMax(int amout);
     }
 }

@@ -17,7 +17,7 @@ namespace TestEFCore.Entities
         public Name(string FirstName, string LastName)
         {
             if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(LastName))
-                throw new ArgumentException("First name and Last name must be defined!");
+                throw new ArgumentException("Имя и фамилия должны быть определены!");
 
             this.FirstName = FirstName;
             this.LastName = LastName;
@@ -28,7 +28,7 @@ namespace TestEFCore.Entities
             Name name = obj as Name;
 
             if (name == null)
-                throw new ArgumentException("Argument is not Name type");
+                throw new ArgumentException("Аргумент не является типом Name");
 
             return (FirstName.Equals(name.FirstName) && LastName.Equals(name.LastName));
         }

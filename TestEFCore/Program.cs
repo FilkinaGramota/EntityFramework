@@ -12,9 +12,9 @@ namespace TestEFCore
     {
         static void Main(string[] args)
         {
-            Cassette cassette1 = new Cassette {Amount = 1 };
-            Cassette cassette4 = new Cassette {Amount = 4 };
-            Cassette cassette3 = new Cassette {Amount = 3 };
+            //Cassette cassette1 = new Cassette {Amount = 1 };
+            //Cassette cassette4 = new Cassette {Amount = 4 };
+            //Cassette cassette3 = new Cassette {Amount = 3 };
 
             /*using (UnitOfWork unit = new UnitOfWork(new VideoLibraryDbContext()))
             {
@@ -41,26 +41,6 @@ namespace TestEFCore
                     Console.WriteLine($"Cassette id={cassette.Id}, amount={cassette.Amount}");
 
             }*/
-                using (VideoLibraryDbContext db = new VideoLibraryDbContext())
-                {  
-                
-                //Order order1 = new Order();
-                //Order order2 = new Order(DateTime.Today, 10);
-                //db.Orders.Add(order1);
-                //db.Orders.Add(order2);
-
-                // take all orders
-                //var orders = db.Orders.ToList();
-
-                // stupid add
-                Film film1 = new Film {Title = "Princess Mononoke", Genre = SomeGenres.Animation };
-                db.Films.Add(film1);
-                
-                db.SaveChanges();
-                
-
-                }
-                Console.ReadLine();
         }
     }
 }

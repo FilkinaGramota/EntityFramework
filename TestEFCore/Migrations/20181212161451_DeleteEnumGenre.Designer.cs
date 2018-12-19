@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestEFCore;
 
 namespace TestEFCore.Migrations
 {
     [DbContext(typeof(VideoLibraryDbContext))]
-    partial class VideoLibraryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181212161451_DeleteEnumGenre")]
+    partial class DeleteEnumGenre
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,15 +105,9 @@ namespace TestEFCore.Migrations
 
                     b.Property<int?>("ClientId");
 
-                    b.Property<int>("Cost");
-
                     b.Property<DateTime>("OrderEnd");
 
-                    b.Property<DateTime>("OrderFactEnd");
-
                     b.Property<DateTime>("OrderStart");
-
-                    b.Property<int>("Surcharge");
 
                     b.HasKey("Id");
 

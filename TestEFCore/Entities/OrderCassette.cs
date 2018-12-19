@@ -10,6 +10,6 @@ namespace TestEFCore.Entities
         public Order Order { get; set; }
 
         public int CassetteId { get; set; }
-        public Cassette Cassette { get; set; } 
+        public Cassette Cassette { get; set; }
     }
 }

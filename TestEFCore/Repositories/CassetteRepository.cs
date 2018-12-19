@@ -18,14 +18,14 @@ namespace TestEFCore.Repositories
             
         }
 
-        public IEnumerable<Cassette> GetCassettesMin(int amount)
+        public IQueryable<Cassette> GetCassettesMin(int amount)
         {
-            return VideoLibraryContext.Cassettes.Where(cassette => cassette.Amount < amount).ToList();
+            return VideoLibraryContext.Cassettes.Where(cassette => cassette.Amount < amount);
         }
 
-        public IEnumerable<Cassette> GetCassettesMax(int amout)
+        public IQueryable<Cassette> GetCassettesMax(int amout)
         {
-            return VideoLibraryContext.Cassettes.Where(cassete => cassete.Amount >= amout).ToList();
+            return VideoLibraryContext.Cassettes.Where(cassete => cassete.Amount >= amout);
         }
 
     }
