@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using TestEFCore.Entities;
 
 namespace TestEFCore.Repositories
@@ -15,6 +16,11 @@ namespace TestEFCore.Repositories
         public FilmRepository(VideoLibraryDbContext context):base(context)
         {
 
+        }
+
+        public Film GetFilm(string filmTitle)
+        {
+            return VideoLibraryContext.Films.Single(f => f.Title.Equals(filmTitle));
         }
     }
 }

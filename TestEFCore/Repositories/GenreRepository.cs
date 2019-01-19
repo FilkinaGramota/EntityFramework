@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using TestEFCore.Entities;
 
 namespace TestEFCore.Repositories
@@ -15,6 +16,11 @@ namespace TestEFCore.Repositories
         public GenreRepository(VideoLibraryDbContext context): base(context)
         {
 
+        }
+
+        public IQueryable<Genre> GetFilmGenres(Film film)
+        {
+            return VideoLibraryContext.Genres.Where(g => g.FilmGenres.Any(fg => fg.FilmId == film.Id));
         }
     }
 }

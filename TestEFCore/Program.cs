@@ -55,7 +55,7 @@ namespace TestEFCore
 
             using (UnitOfWork unit = new UnitOfWork(new VideoLibraryDbContext()))
             {
-                unit.GenreRep.Add(comedy);
+                /*unit.GenreRep.Add(comedy);
                 unit.GenreRep.Add(drama);
                 unit.GenreRep.Add(melodrama);
                 unit.GenreRep.Add(military);
@@ -74,7 +74,7 @@ namespace TestEFCore
                 unit.OrderRep.Add(order1);
                 unit.OrderRep.Add(order2);
 
-                unit.Save();
+                unit.Save();*/
 
                 IList<Cassette> allCassettes = unit.CassetteRep.GetAll().ToList();
 
@@ -91,6 +91,13 @@ namespace TestEFCore
                 Console.WriteLine("Cassettes which have amount >= 3 :");
                 foreach (var cassette in maxCassettes)
                     Console.WriteLine($"Cassette id={cassette.Id}, amount={cassette.Amount}");
+
+                var film = unit.FilmRep.GetFilm("Девчата");
+                var genres = unit.GenreRep.GetFilmGenres(film).ToList() ;
+
+                Console.WriteLine($"Genres of film {film.Title}:");
+                foreach (var g in genres)
+                    Console.WriteLine(g.Type);
 
             }
 
