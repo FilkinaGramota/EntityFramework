@@ -9,8 +9,9 @@ namespace TestEFCore.UnitsOfWork
     {
         ICasseteRepository CassetteRep { get; set; }
         IClientRepository ClientRep { get; set; }
-        // IOderRepository
-        // IFilmRepository
+        IOrderRepository OrderRep { get; set; }
+        IFilmRepository FilmRep { get; set; }
+        IGenreRepository GenreRep { get; set; }
         int Save();// complete work with repository
     }
 }

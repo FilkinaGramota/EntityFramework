@@ -11,13 +11,18 @@ namespace TestEFCore.UnitsOfWork
 
         public ICasseteRepository CassetteRep { get; set; }
         public IClientRepository ClientRep { get; set; }
-        // IOderRepository
-        // IFilmRepository
+        public IOrderRepository OrderRep { get; set; }
+        public IFilmRepository FilmRep { get; set; }
+        public IGenreRepository GenreRep { get; set; }
 
         public UnitOfWork(VideoLibraryDbContext context)
         {
             this.context = context;
             CassetteRep = new CassetteRepository(context);
+            ClientRep = new ClientRepository(context);
+            OrderRep = new OrderRepository(context);
+            FilmRep = new FilmRepository(context);
+            GenreRep = new GenreRepository(context);
         }
 
         public int Save()

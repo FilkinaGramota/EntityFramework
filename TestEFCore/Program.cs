@@ -20,16 +20,22 @@ namespace TestEFCore
             var fantasy = new Genre { Type = "Фэнтези" };
 
             var Devchata = new Film { Title = "Девчата", Year = 1962, Type = FilmTypes.Fiction };
-            Devchata.AddGenre(comedy); Devchata.AddGenre(melodrama);
+            Devchata.AddGenre(comedy);
+            Devchata.AddGenre(melodrama);
 
             var Casablanca = new Film { Title = "Касабланка", Year = 1942, Type = FilmTypes.Fiction };
-            Casablanca.AddGenre(drama); Casablanca.AddGenre(melodrama); Casablanca.AddGenre(military);
+            Casablanca.AddGenre(drama);
+            Casablanca.AddGenre(melodrama);
+            Casablanca.AddGenre(military);
 
             var SleepingBeauty = new Film { Title = "Спящая красавица", Year = 1958, Type = FilmTypes.Animation };
-            SleepingBeauty.AddGenre(musical); SleepingBeauty.AddGenre(melodrama); SleepingBeauty.AddGenre(fantasy);
+            SleepingBeauty.AddGenre(musical);
+            SleepingBeauty.AddGenre(melodrama);
+            SleepingBeauty.AddGenre(fantasy);
 
             Cassette cassette1 = new Cassette {Amount = 1 , Title = "Странное собрание"};
-            cassette1.AddFilm(Casablanca); cassette1.AddFilm(Devchata);
+            cassette1.AddFilm(Casablanca);
+            cassette1.AddFilm(Devchata);
 
             Cassette cassette4 = new Cassette {Amount = 4, Title = "Коллекция Disney. Спящая красавица" };
             cassette4.AddFilm(SleepingBeauty);
@@ -47,12 +53,28 @@ namespace TestEFCore
 
             order1.Close(new DateTime(2019, 1, 19));
 
-            /*using (UnitOfWork unit = new UnitOfWork(new VideoLibraryDbContext()))
+            using (UnitOfWork unit = new UnitOfWork(new VideoLibraryDbContext()))
             {
-                //unit.CasseteRep.Add(cassette1);
-                //unit.CasseteRep.Add(cassette3);
-                //unit.CasseteRep.Add(cassette4);
-                //unit.Save();
+                unit.GenreRep.Add(comedy);
+                unit.GenreRep.Add(drama);
+                unit.GenreRep.Add(melodrama);
+                unit.GenreRep.Add(military);
+                unit.GenreRep.Add(musical);
+                unit.GenreRep.Add(fantasy);
+
+                unit.FilmRep.Add(Devchata);
+                unit.FilmRep.Add(Casablanca);
+                unit.FilmRep.Add(SleepingBeauty);
+
+                unit.CassetteRep.Add(cassette1);
+                unit.CassetteRep.Add(cassette4);
+
+                unit.ClientRep.Add(client);
+
+                unit.OrderRep.Add(order1);
+                unit.OrderRep.Add(order2);
+
+                unit.Save();
 
                 IList<Cassette> allCassettes = unit.CassetteRep.GetAll().ToList();
 
@@ -70,7 +92,7 @@ namespace TestEFCore
                 foreach (var cassette in maxCassettes)
                     Console.WriteLine($"Cassette id={cassette.Id}, amount={cassette.Amount}");
 
-            }*/
+            }
 
             Console.ReadLine();
         }
