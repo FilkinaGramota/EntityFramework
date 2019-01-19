@@ -12,6 +12,11 @@ namespace TestEFCore.Entities
 
         public IList<FilmGenre> FilmGenres { get; set; }
 
+        public Genre()
+        {
+            FilmGenres = new List<FilmGenre>();
+        }
+
         public Genre ReadData(TextReader reader, TextWriter writer)
         {
             if (reader == null)

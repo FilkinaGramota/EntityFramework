@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestEFCore;
 
 namespace TestEFCore.Migrations
 {
     [DbContext(typeof(VideoLibraryDbContext))]
-    partial class VideoLibraryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190119013850_SomeChanges")]
+    partial class SomeChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,7 +57,7 @@ namespace TestEFCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Client");
                 });
 
             modelBuilder.Entity("TestEFCore.Entities.Film", b =>
@@ -99,7 +101,7 @@ namespace TestEFCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres");
+                    b.ToTable("Genre");
                 });
 
             modelBuilder.Entity("TestEFCore.Entities.Order", b =>
@@ -169,7 +171,7 @@ namespace TestEFCore.Migrations
                                 .IsRequired()
                                 .HasColumnName("LastName");
 
-                            b1.ToTable("Clients");
+                            b1.ToTable("Client");
 
                             b1.HasOne("TestEFCore.Entities.Client")
                                 .WithOne("Name")

@@ -10,9 +10,11 @@ namespace TestEFCore
 {
     public class VideoLibraryDbContext: DbContext
     {
+        public DbSet<Client> Clients { get; set; }
         public DbSet<Cassette> Cassettes { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Film> Films { get; set; }
+        public DbSet<Genre> Genres { get; set; }
         public DbSet<CassetteFilm> CassetteFilms { get; set; }
         public DbSet<FilmGenre> FilmGenres { get; set; }
         public DbSet<OrderCassette> OrderCassettes { get; set; }
@@ -41,6 +43,14 @@ namespace TestEFCore
                     name.Property(x => x.FirstName).HasColumnName("FirstName");
                     name.Property(x => x.LastName).HasColumnName("LastName");
                 });
+
+            // enum mapping
+            // чтоб красивенько строчкой в базе прописывалось
+            var converter = new ValueConverter<FilmTypes, string>(
+                type => type.ToString(), // как записывать в базу
+                str => (FilmTypes)Enum.Parse(typeof(FilmTypes), str)); // как считывать данные из базы
+
+            modelBuilder.Entity<Film>().Property(x => x.Type).HasConversion(converter);
         }
     }
 }

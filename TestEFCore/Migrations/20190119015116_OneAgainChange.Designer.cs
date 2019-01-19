@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestEFCore;
 
 namespace TestEFCore.Migrations
 {
     [DbContext(typeof(VideoLibraryDbContext))]
-    partial class VideoLibraryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190119015116_OneAgainChange")]
+    partial class OneAgainChange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
